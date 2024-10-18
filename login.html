@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Styles.css" />
+    <title>Login - Ice Cream Store</title>
+  </head>
+  <body>
+    <div class="signup-container">
+      <h1>Sai's Ice Cream Store</h1>
+      <h2>Login to Your Account</h2>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="Enter email" />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter password"
+          />
+        </div>
+        <button type="submit" class="btn-submit">Login</button>
+        <h1>user@icecreamstore.com, password123</h1>
+      </form>
+    </div>
+
+    <script>
+      const loginForm = document.getElementById("loginForm");
+      const loginEmail = document.getElementById("loginEmail");
+      const loginPassword = document.getElementById("loginPassword");
+
+      loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = loginEmail.value;
+        const password = loginPassword.value;
+
+        // Simple validation checks
+        if (!email.includes("@")) {
+          alert("Please enter a valid email.");
+          return;
+        }
+
+        if (password.length < 6) {
+          alert("Password must be at least 6 characters long.");
+          return;
+        }
+
+        // Mock user data
+        const storedEmail = "user@icecreamstore.com";
+        const storedPassword = "password123";
+
+        // Validate the login credentials
+        if (email === storedEmail && password === storedPassword) {
+          alert("Login successful! Welcome to Sai's Ice Cream Store.");
+        } else {
+          alert("Invalid login credentials. Please try again.");
+        }
+      });
+    </script>
+  </body>
+</html>
